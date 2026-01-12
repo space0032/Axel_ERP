@@ -1,0 +1,13 @@
+package com.axelerp.repository;
+
+import com.axelerp.model.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface ProductRepository extends JpaRepository<Product, Long> {
+    List<Product> findByQuantityLessThanEqual(Integer quantity);
+    List<Product> findByCategory(String category);
+}
